@@ -1,9 +1,47 @@
 <?php
 	class DemosController extends ApplicationController 
 	{
+		public function modelos(){
+			$this -> render(null,null);
+			
+			$usuario = UsuarioLogin::consultar("id!=0 order by id");
+			
+			echo $usuario -> email;
+		}
 		
 		public function index(){
 			
+		}
+		
+		public function iniciarFacebook(){
+			$this -> render(null,null);
+				
+			Load::lib("facebook");
+			
+			$facebook = new FB("fb/iniciarFacebook");
+			
+			if(!$facebook -> iniciado()){
+				$facebook -> iniciar();
+			}
+			else{
+				$usuario = $facebook -> iniciar();
+				print_r($usuario);
+			}
+			
+			if(UsuarioLogin::existe("facebook_id=".$usuario -> id)){
+        		$usuario = UsuarioLogin::consultar("facebook_id=".$usuario -> id);
+        	}
+        	else{
+        		$usuario = UsuarioLogin::registrarFacebook(
+	        		$user -> id,
+	        		utf8_decode($user -> first_name),
+	        		utf8_decode($user -> last_name),
+	        		formatoFechaDBGringa($user -> birthday),
+	        		$user -> gender,
+	        		$user -> email,
+	        		$user -> link
+				);
+        	}
 		}
 		
 		public function formatos(){

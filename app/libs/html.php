@@ -13,7 +13,10 @@
 		
 		public static function link($accion, $texto) {
 			$params = is_array($accion) ? $accion : Util::getParams(func_get_args());
-			return  link_to($params);
+			
+			$params[1] = str_replace(":", "###", $texto);
+			
+			return  str_replace("###", ":", link_to($params));
 		}
 	
 		public static function linkConfirmado($accion, $texto, $mensaje) {

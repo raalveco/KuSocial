@@ -19,5 +19,16 @@
 
 # 25/06/2011 Ejemplos: Probando la funcionalidad de la version.
 
+# 30/06/2011 Mantenimiento: Reparaciones al model_base.php ya que en versiones inferiores a 5.3 no funcionaba.
+# 11/07/2011 Mantenimiento: Modificaciones al Core, archivo kumbia.php y agregado functions.php que es donde se agrega la get_called_class para versiones inferiores al 5.3.
+
 *** Version 0.2 ***
-# 03/07/2011 Libreria: Clase Acordeon.
+
+Menu Automatico
+
+Libreria Facebook
+Modelo Usuario Login
+
+Estilos e imagenes del dise;o de KuSocial
+
+Template para KuSocial
